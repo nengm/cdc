@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cdc</artifactId>
+        <groupId>com.mn</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cdc-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- redis -->
+        <version.redis.version>2.8.0</version.redis.version>
+
+        <!-- log -->
+        <version.log.version>2.15.0</version.log.version>
+        <version.slf4j-api.version>1.7.30</version.slf4j-api.version>
+
+        <!-- commons-lang -->
+        <version.commons-lang.version>2.6</version.commons-lang.version>
+
+        <!-- mysql drivers-->
+        <version.mysql.driver>8.0.26</version.mysql.driver>
+        <version.mysql.binlog>0.25.3</version.mysql.binlog>
+
+        <!-- 语法解析 -->
+        <version.antlr.version>4.7</version.antlr.version>
+
+        <!-- java对象和json相互转化 -->
+        <version.jackson.version>2.10.4</version.jackson.version>
+
+        <!-- Java的工具集 -->
+        <version.guava.version>30.0-jre</version.guava.version>
+
+        <version.fastjson.version>1.2.76</version.fastjson.version>
+        <!-- oracle drivers -->
+        <version.oracle.version>21.1.0.0</version.oracle.version>
+
+        <version.commons-collections.version>3.2.2</version.commons-collections.version>
+
+        <version.gson.version>2.7</version.gson.version>
+
+        <version.commons-codec.version>1.11</version.commons-codec.version>
+
+        <version.orai18n.version>19.7.0.0</version.orai18n.version>
+
+        <version.jsqlparser.version>4.3</version.jsqlparser.version>
+
+        <version.sqlserver.driver>7.2.2.jre8</version.sqlserver.driver>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- Redis -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${version.redis.version}</version>
+            </dependency>
+
+            <!--    日志框架：slf4j-->
+            <!--    日志实现：log4j2-->
+            <!--    桥接包：log4j-slf4j-impl-->
+
+            <!-- 日志框架(门面) -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${version.slf4j-api.version}</version>
+            </dependency>
+            <!-- 日志实现 -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${version.log.version}</version>
+            </dependency>
+            <!-- 日志桥接包   桥接包的版本须对应log4j2的版本 -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${version.log.version}</version>
+            </dependency>
+            <!-- 基础的、通用的操作和处理 -->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${version.commons-lang.version}</version>
+            </dependency>
+
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${version.mysql.driver}</version>
+            </dependency>
+
+            <!-- binlog -->
+            <dependency>
+                <groupId>com.zendesk</groupId>
+                <artifactId>mysql-binlog-connector-java</artifactId>
+                <version>${version.mysql.binlog}</version>
+            </dependency>
+
+            <!-- java对象和json相互转化 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${version.jackson.version}</version>
+            </dependency>
+
+            <!-- 语法解析 -->
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-runtime</artifactId>
+                <version>${version.antlr.version}</version>
+            </dependency>
+
+            <!-- Java的工具集 -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${version.guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.oracle.database.jdbc</groupId>
+                <artifactId>ojdbc8</artifactId>
+                <version>${version.oracle.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${version.commons-collections.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${version.gson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${version.commons-codec.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${version.fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.oracle.database.nls</groupId>
+                <artifactId>orai18n</artifactId>
+                <version>${version.orai18n.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.jsqlparser</groupId>
+                <artifactId>jsqlparser</artifactId>
+                <version>${version.jsqlparser.version}</version>
+            </dependency>
+
+            <!-- SQL Server driver -->
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>${version.sqlserver.driver}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mn</groupId>
+                <artifactId>cdc-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mn</groupId>
+                <artifactId>cdc-util</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mn</groupId>
+                <artifactId>cdc-mysql</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mn</groupId>
+                <artifactId>cdc-oracle</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mn</groupId>
+                <artifactId>cdc-engine</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+        </dependencies>
+    </dependencyManagement>
+</project>
